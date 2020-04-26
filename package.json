@@ -1,0 +1,35 @@
+{
+  "name": "sonarr-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require ts-node/register ./specs/*.spec.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/absentbri/sonarr-api.git"
+  },
+  "author": "Brian Ramsey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/absentbri/sonarr-api/issues"
+  },
+  "homepage": "https://github.com/absentbri/sonarr-api#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.2",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.13.2",
+    "@types/winston": "^2.4.4",
+    "axios": "^0.19.2",
+    "standard": "^14.3.3",
+    "ts-node": "^8.9.1",
+    "winston": "^3.2.1"
+  }
+}
