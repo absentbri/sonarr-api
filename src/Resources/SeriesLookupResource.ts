@@ -1,4 +1,3 @@
-import {URL} from 'url'
 import {Http} from './Http'
 import {SeriesLookup} from '../Models'
 import {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios'
