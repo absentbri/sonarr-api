@@ -1,9 +1,11 @@
+require('dotenv').config()
 const { SonarrClient } = require('../dist')
+const { APIKEY: apiKey, ENDPOINT: host } = process.env
 
-const sonarr = new SonarrClient({apiKey: "b8f7c51a9eeb432bacd7bc7e9be85a26", port: 8989})
+const sonarr = new SonarrClient({ apiKey, host })
 
 async function run() {
-	const test = await sonarr.serieslookup.list("the blacklist")
+	const test = await sonarr.rootfolder.list()
 	console.log(test)
 	console.log(test.length)
 	return test

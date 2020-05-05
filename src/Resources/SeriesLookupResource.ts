@@ -1,6 +1,6 @@
 import {Http} from './Http'
 import {SeriesLookup} from '../Models'
-import {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios'
+import {AxiosRequestConfig, AxiosResponse} from 'axios'
 
 export class SeriesLookupResource extends Http {
 
@@ -8,10 +8,14 @@ export class SeriesLookupResource extends Http {
 		super(config)
 	}
 
-	list(term: string): Promise<SeriesLookup[]> {
-		return this.get('/series/lookup', {params: {term: term}})
-			.then((response: AxiosResponse) => response.data)
-			.catch((error: AxiosError) => console.error(error))
+	async list(term: string): Promise<SeriesLookup[]> {
+		try {
+			const response: AxiosResponse = await this.get('/series/lookup', { params: { term: term } });
+			return response.data;
+		}
+		catch (error) {
+			throw error;
+		}
 	}
 
 }

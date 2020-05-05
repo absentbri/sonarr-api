@@ -4,7 +4,7 @@ import winston from 'winston'
 
 import {SonarrOptions} from './SonarrOptions'
 
-import {SeriesLookupResource} from './Resources'
+import {SeriesLookupResource, RootfolderResource} from './Resources'
 
 export class SonarrClient {
 
@@ -17,6 +17,7 @@ export class SonarrClient {
 	private readonly options: SonarrOptions
 
 	public readonly serieslookup: SeriesLookupResource
+	public readonly rootfolder: RootfolderResource
 
 	constructor(options: Partial<SonarrOptions>) {
 		this.options = <SonarrOptions>Object.assign({}, this._defaultOptions, options)
@@ -24,9 +25,10 @@ export class SonarrClient {
 		const axiosConfig = this.config()
 
 		this.serieslookup = new SeriesLookupResource(axiosConfig)
+		this.rootfolder = new RootfolderResource(axiosConfig)
 	}
 
-	private url() {
+	private url(): URL {
 		const protocol = this.options.ssl ? 'https' : 'http'
 		const base = this.options.baseUrl?.length ? `/${this.options.baseUrl}` : ''
 		return new URL(`${protocol}://${this.options.host}:${this.options.port}${base}/api`)
@@ -47,6 +49,7 @@ export class SonarrClient {
 	}
 
 	private logger() {
+		// TODO - make logger work?
 		const logger = winston.createLogger({
 			level: 'info',
 			format: winston.format.json(),
