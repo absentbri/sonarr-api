@@ -4,7 +4,7 @@ import winston from 'winston'
 
 import {SonarrOptions} from './SonarrOptions'
 
-import {SeriesLookupResource, RootfolderResource} from './Resources'
+import {SeriesLookupResource, RootfolderResource, ProfileResource} from './Resources'
 
 export class SonarrClient {
 
@@ -18,6 +18,7 @@ export class SonarrClient {
 
 	public readonly serieslookup: SeriesLookupResource
 	public readonly rootfolder: RootfolderResource
+	public readonly profile: ProfileResource
 
 	constructor(options: Partial<SonarrOptions>) {
 		this.options = <SonarrOptions>Object.assign({}, this._defaultOptions, options)
@@ -26,6 +27,7 @@ export class SonarrClient {
 
 		this.serieslookup = new SeriesLookupResource(axiosConfig)
 		this.rootfolder = new RootfolderResource(axiosConfig)
+		this.profile = new ProfileResource(axiosConfig)
 	}
 
 	private url(): URL {

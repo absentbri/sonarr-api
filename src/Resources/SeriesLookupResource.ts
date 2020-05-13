@@ -10,7 +10,7 @@ export class SeriesLookupResource extends Http {
 
 	async list(term: string): Promise<SeriesLookup[]> {
 		try {
-			const response: AxiosResponse = await this.get('/series/lookup', { params: { term: term } });
+			const response: AxiosResponse = await this.get('/series/lookup', { params: { term } });
 			return response.data;
 		}
 		catch (error) {
