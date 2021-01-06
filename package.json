@@ -28,7 +28,7 @@
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.13.2",
     "@types/winston": "^2.4.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "standard": "^14.3.3",
     "ts-node": "^8.9.1",
     "winston": "^3.2.1"
